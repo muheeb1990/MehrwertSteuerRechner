@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    background-color: rgb(240, 239, 239);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.logo-image{
+    position: relative;
+    margin-bottom: 100px;
+    padding: 20px;
+}
+
+.logo-image img{
+    position: absolute;
+    right: 0;
+}
+
+
+h1{
+    color: darkgray;
+    font-size: 3em;
+    text-align: center;
+}
+.rechner-container{
+
+    margin: 40px;
+    text-align: center;
+    font-size: 2em;
+    color: rgb(98, 92, 92);
+}
+
+.input{
+    margin-top: 40px;
+    width: 80px;
+    padding: 20px;
+    border: 1px solid  rgb(98, 92, 92) ;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.satz-label{
+    color: red;
+}
+
+.rechnen{
+    width: 120px;
+    display: block;
+    margin: auto;
+    padding: 18px;
+    font-size: large;
+    border-radius: 6px;
+    color: aliceblue;
+    background-color: rgb(98, 92, 92) ;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+.rechnen:hover{
+    background-color: azure;
+    color: black;
+    transition: 0.5s;
+}
+.hr{
+    height: 2px;
+    background-color:rgb(92, 98, 92)  ;
+    
+}
