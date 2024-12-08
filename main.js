@@ -1,32 +1,51 @@
-/*let netto = document.getElementById('netto').value;
-let brutto = document.getElementById('brutto').value;
+function bruttoRechnen() {
+    const nettoInput = document.getElementById("netto");
+    const bruttoInput = document.getElementById("brutto");
+    const betragInput = document.getElementById("betrag");
+    const satzAllgemein = document.getElementById("satz-allgemein");
+    const satzErmaessigt = document.getElementById("satz-ermäßigt");
 
-/*let allgemeinSteuer= document.getElementById('satz-allgemein').value;
-
-let lebensmittelSteuer =document.getElementById('satz-ermäßigt').value;
-
-let steuerBetragRechner = function(){
-    if(allgemeinSteuer){
-    steuerBetrag = brutto - netto;
+    let mwstSatz = 0;
+    if (satzAllgemein.checked) {
+        mwstSatz = parseFloat(satzAllgemein.value);
+    } else if (satzErmaessigt.checked) {
+        mwstSatz = parseFloat(satzErmaessigt.value);
+    } else {
+        alert("Bitte wähle einen Mehrwertsteuersatz aus.");
+        return;
     }
-    else{
-    steuerBetrag= netto *lebensmittelSteuer;
+
+    const netto = parseFloat(nettoInput.value);
+    const brutto = parseFloat(bruttoInput.value);
+    if (!isNaN(netto) && netto !== "") {
+        const bruttoBerechnet = netto * (1 + mwstSatz);
+        bruttoInput.value = bruttoBerechnet.toFixed(2);
+
+        const betrag = netto * mwstSatz;
+        betragInput.value = betrag.toFixed(2);
+    } else if (!isNaN(brutto) && brutto !== "") {
+        const nettoBerechnet = brutto / (1 + mwstSatz);
+        nettoInput.value = nettoBerechnet.toFixed(2);
+        const betrag = brutto - nettoBerechnet;
+        betragInput.value = betrag.toFixed(2);
+    } else {
+        alert("Bitte gib entweder einen Netto- oder Bruttobetrag ein.");
     }
-    return(document.getElementById('betrag').value =steuerBetrag);
 }
 
-function checkRd(evt){
-    evt.preventDefault();
-    document.getElementById('betrag').value = 
-}
+document.querySelectorAll('.input').forEach(input => {
+    input.addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9.,]/g, ''); 
+    });
 
-
-function bruttoRechnen(netto){
-    if(allgemeinSteuer && netto != 0){
-    brutto = netto + (netto * allgemeinSteuer);}
-    else{
-    brutto = netto + (netto * lebensmittelSteuer);
-    }
-    return(brutto)
-}
- */
+    input.addEventListener('focus', function () {
+        if (this.id === 'netto') {
+            document.getElementById('netto').value = ""
+            document.getElementById('brutto').value = "";
+            document.getElementById('betrag').value = "";
+        } else if (this.id === 'brutto') {
+            document.getElementById('netto').value = "";
+            document.getElementById('betrag').value = "";
+        }
+    });
+});
