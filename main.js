@@ -4,14 +4,14 @@ function bruttoRechnen() {
     const betragInput = document.getElementById("betrag");
     const satzAllgemein = document.getElementById("satz-allgemein");
     const satzErmaessigt = document.getElementById("satz-ermäßigt");
-
     let mwstSatz = 0;
+
     if (satzAllgemein.checked) {
         mwstSatz = parseFloat(satzAllgemein.value);
     } else if (satzErmaessigt.checked) {
         mwstSatz = parseFloat(satzErmaessigt.value);
     } else {
-        alert("Bitte wähle einen Mehrwertsteuersatz aus.");
+        alert("bitte wähle einen Merwertsteuersatz aus.!!");
         return;
     }
 
@@ -23,13 +23,15 @@ function bruttoRechnen() {
 
         const betrag = netto * mwstSatz;
         betragInput.value = betrag.toFixed(2);
+
     } else if (!isNaN(brutto) && brutto !== "") {
         const nettoBerechnet = brutto / (1 + mwstSatz);
         nettoInput.value = nettoBerechnet.toFixed(2);
+
         const betrag = brutto - nettoBerechnet;
         betragInput.value = betrag.toFixed(2);
     } else {
-        alert("Bitte gib entweder einen Netto- oder Bruttobetrag ein.");
+        alert("Bitte gib entweder einen Nettobetrag oder  Bruttobetrag ein.");
     }
 }
 
@@ -38,7 +40,7 @@ document.querySelectorAll('.input').forEach(input => {
         this.value = this.value.replace(/[^0-9.,]/g, ''); 
     });
 
-    input.addEventListener('focus', function () {
+    input.addEventListener('focus', function() {
         if (this.id === 'netto') {
             document.getElementById('netto').value = ""
             document.getElementById('brutto').value = "";
@@ -46,6 +48,7 @@ document.querySelectorAll('.input').forEach(input => {
         } else if (this.id === 'brutto') {
             document.getElementById('netto').value = "";
             document.getElementById('betrag').value = "";
+            document.getElementById('brutto').value = "";
         }
     });
 });

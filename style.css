@@ -71,3 +71,20 @@ h1{
     background-color:rgb(92, 98, 92)  ;
     
 }
+
+
+
+
+.image-deco img{
+    width: 100%;
+    height: 600px;
+    margin: 250px 0;
+
+}
+
+.footer{
+    max-height: 400px;
+    font-size: 2em;
+    text-align: center;
+    margin: 200px 0;
+}
