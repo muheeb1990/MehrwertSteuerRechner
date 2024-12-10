@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-image"><img src="../www/img/img/logo.png" alt="logo"></div>
+        <h1 class="header-title">Mehrwertsteuer Rechner</h1>
+
+
+        <form action="" class="rechner-container">
+            
+            <label for="netto" class="label">Netto :</label>
+            <input type="text" class="input" id="netto">
+
+            <label for="brutto" class="label">Brutto :</label>
+            <input type="text" class="input" id="brutto">
+            
+            <span class="label">MwSt.Satz :</span>
+           
+            <label for="satz-allgemein" class="satz-label">Allgemein 19%</label>
+            <input type="radio" id="satz-allgemein" value="0.19" name="check">
+            <label for="satz-ermäßigt" class="satz-label">Ermäßigt 7%</label>
+            <input type="radio" id="satz-ermäßigt" value="0.07" name="check">
+
+              
+            <label for="betrag" class="label">MwSt.Betrag :</label>
+            <input type="text" class="input" id="betrag">
+        </form>
+
+        <button onclick= bruttoRechnen() class="rechnen" id="rechnen">Rechnen</button>
+
+        
+
+        <div class="footer">
+            <h3>&copy Copyrghit CreateOceans GmbH</h3>
+        </div>
+        <script src="./js/index.js"></script>
+</body>
+</html>
